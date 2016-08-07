@@ -1,0 +1,9 @@
+Attribute VB_Name = "Module2"
+Sub Deleterowlabelslist1()
+Dim lRow
+lRow = 200
+Do While lRow >= 2
+If Cells(lRow, 7) <> "no" Then Rows(lRow).Delete
+lRow = lRow - 1
+Loop
+End Sub
