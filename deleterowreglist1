@@ -1,0 +1,10 @@
+Attribute VB_Name = "Module3"
+Sub Deleterowreglist1()
+Dim lRow
+lRow = 100
+Do While lRow >= 2
+If Cells(lRow, 15) = "Local Normal Postage" Then Rows(lRow).Delete
+If Cells(lRow, 15) = "Free Normal Shipping" Then Rows(lRow).Delete
+lRow = lRow - 1
+Loop
+End Sub
