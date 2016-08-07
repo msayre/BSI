@@ -1,0 +1,65 @@
+Attribute VB_Name = "Module1"
+Sub AAregisteredlist()
+
+Call Deleterowlabelslist1
+Call Deleterowreglist1
+Call deletecolumnreglist2
+
+End Sub
+
+Sub Deleterowlabelslist1()
+Dim lRow
+lRow = 200
+Do While lRow >= 2
+If Cells(lRow, 7) <> "no" Then Rows(lRow).Delete
+lRow = lRow - 1
+Loop
+End Sub
+
+Sub Deleterowreglist1()
+Dim lRow
+lRow = 100
+Do While lRow >= 2
+If Cells(lRow, 15) = "Local Normal Postage" Then Rows(lRow).Delete
+If Cells(lRow, 15) = "Free Normal Shipping" Then Rows(lRow).Delete
+lRow = lRow - 1
+Loop
+End Sub
+
+
+Sub deletecolumnreglist2()
+'
+' deletecolumnreglist2 Macro
+' deletes columns not needed for registration list
+'
+
+'
+    Columns("B:N").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("C:U").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("L:X").Select
+    Selection.ClearContents
+    Columns("B:B").EntireColumn.AutoFit
+    Columns("C:C").EntireColumn.AutoFit
+    Columns("D:D").EntireColumn.AutoFit
+    Columns("E:E").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("E:E").EntireColumn.AutoFit
+    Columns("F:F").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("F:F").EntireColumn.AutoFit
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 4
+    ActiveWindow.ScrollColumn = 5
+    ActiveWindow.ScrollColumn = 6
+    ActiveWindow.ScrollColumn = 5
+    ActiveWindow.ScrollColumn = 4
+    Columns("H:H").Select
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 1
+    Range("A2").Select
+End Sub
+
