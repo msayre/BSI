@@ -1,0 +1,40 @@
+Attribute VB_Name = "Module21"
+Sub AAlabellist()
+
+Call setziptotext
+Call fixzip
+Call Deleterowlabelslist1
+
+End Sub
+
+
+Sub Deleterowlabelslist1()
+Dim lRow
+lRow = 200
+Do While lRow >= 2
+If Cells(lRow, 7) <> "no" Then Rows(lRow).Delete
+lRow = lRow - 1
+Loop
+End Sub
+
+Sub setziptotext()
+'
+' setziptotext Macro
+' sets zipcode column format to text
+'
+
+'
+    Columns("AO:AO").Select
+    Range("AO80").Activate
+    Selection.NumberFormat = "@"
+End Sub
+
+
+Sub fixzip()
+Dim cel As Range
+Application.ScreenUpdating = False
+For Each cel In Range("AO2:AO230")
+    cel.Value = Mid(cel.Value, 2)
+Next
+End Sub
+
